@@ -32,10 +32,6 @@ module Facebook
 
         def _make_auth_request path, data
 
-            if @access_token.nil?
-                raise PyfbException "Must Be authenticated. Do you forgot to get the access token?"
-            end
-
             url = "#{@GRAPH_URL}#{path}"
             data["access_token"] = @access_token
             _make_request url, data
